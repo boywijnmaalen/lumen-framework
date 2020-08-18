@@ -444,8 +444,6 @@ trait RoutesRequests
             $response = (new HttpFoundationFactory)->createResponse($response);
         } elseif (! $response instanceof SymfonyResponse) {
             $response = new Response($response);
-        } elseif ($response instanceof BinaryFileResponse) {
-            $response = $response->prepare(Request::capture());
         }
 
         return $response->prepare($request);
